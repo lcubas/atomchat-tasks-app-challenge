@@ -1,16 +1,23 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Task } from '../../models/task.model';
 
 @Component({
   selector: 'app-task-item',
   templateUrl: './task-item.component.html',
-  styleUrls: ['./task-item.component.css']
+  styleUrls: ['./task-item.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class TaskItemComponent {
-  @Input() task: string = '';
+  @Input() task: Task = {
+    id: '',
+    title: '',
+    description: '',
+    is_completed: false,
+  };
 
-  isCompleted: boolean = false;
+  isCompleted: boolean = this.task.is_completed;
 
   onChange() {
-    this.isCompleted = !this.isCompleted;
+    this.task.is_completed = !this.task.is_completed;
   }
 }

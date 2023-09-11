@@ -1,7 +1,9 @@
-<section class="app-task">
-  <mat-list class="app-task-list">
-    <mat-list-item *ngFor="let task of currentTasks">
-      <app-task-item task="{{ task }}"></app-task-item>
-    </mat-list-item>
-  </mat-list>
+<section class="app-task-list-wrapper">
+  <ul class="app-task-list">
+    <li *ngFor="let currentTask of tasks$ | async">
+      <app-task-item [task]="currentTask"></app-task-item>
+    </li>
+
+    <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
+  </ul>
 </section>

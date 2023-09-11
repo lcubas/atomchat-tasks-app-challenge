@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 *::before,
@@ -17,5 +17,6 @@ html, body {
 
 body {
   margin: 0;
+  background-color: #19191B;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }

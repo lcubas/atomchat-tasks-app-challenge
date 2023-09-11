@@ -1,9 +1,36 @@
-.app-task-checkbox {
-  .mdc-checkbox__background {
-    border-color: #FFF !important;
+.app-task-item {
+  display: flex;
+  flex-direction: row;
+
+  &.app-task-item--completed {
+    color: #EDEDED;
+    text-decoration: line-through;
   }
 }
 
-h2 {
-  color: #FFF;
+.app-task-item-checkbox {
+  .mdc-checkbox__background {
+    border-color: #FFF !important;
+  }
+
+  .mdc-checkbox {
+    .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+      border-color: #4CAF50 !important;
+      background-color: #4CAF50 !important;
+    }
+  }
+}
+
+.app-task-item-content {
+  padding-top: 5px;
+}
+
+.app-task-item-title {
+  margin: 0;
+  padding-bottom: 8px;
+}
+
+.app-task-item-description {
+  margin: 0;
+  font-size: 14px;
 }
