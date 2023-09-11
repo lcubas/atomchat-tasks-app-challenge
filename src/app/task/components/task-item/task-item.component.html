@@ -1,0 +1,23 @@
+<div
+  [ngClass]="{
+    'app-task-item': true,
+    'app-task-item--completed': task.is_completed
+  }"
+>
+  <mat-checkbox
+    (change)="onChange()"
+    [disableRipple]="true"
+    [checked]="task.is_completed"
+    class="app-task-item-checkbox"
+  />
+
+<div class="app-task-item-content">
+  <h2 class="app-task-item-title">
+    {{ task.title }}
+  </h2>
+
+  <p class="app-task-item-description">
+    {{ task.description }}
+  </p>
+</div>
+</div>

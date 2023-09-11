@@ -1,0 +1,25 @@
+.app-task-list-wrapper {
+  margin: auto;
+  max-width: 650px;
+  padding: 40px 20px;
+}
+
+.app-task-list {
+  padding: 24px;
+  border-radius: 4px;
+  list-style: none;
+  max-height: 450px;
+  overflow-y: scroll;
+  background-color: #262629;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.app-task-list li {
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.app-task-list .mat-mdc-progress-spinner.mdc-circular-progress--indeterminate {
+  margin: auto;
+}
