@@ -1,0 +1,7 @@
+<section class="app-task">
+  <mat-list class="app-task-list">
+    <mat-list-item *ngFor="let task of currentTasks">
+      <app-task-item task="{{ task }}"></app-task-item>
+    </mat-list-item>
+  </mat-list>
+</section>

@@ -1,0 +1,11 @@
+.app-task {
+  margin: auto;
+  max-width: 650px;
+  padding: 40px 20px;
+}
+
+.app-task-list {
+  border-radius: 4px;
+  background-color: #262629;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,9 @@
+.app-task-checkbox {
+  .mdc-checkbox__background {
+    border-color: #FFF !important;
+  }
+}
+
+h2 {
+  color: #FFF;
+}
