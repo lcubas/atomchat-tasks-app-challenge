@@ -12,7 +12,6 @@ import { TaskStateService } from '../../services/task-state.service';
 export class TaskListComponent implements OnInit {
   tasks$: Observable<Task[]>;
   isLoading$: Observable<boolean>;
-  currentTasks: string[] = ['Take a shower', 'Do homework', 'Do exercise'];
 
   constructor(private taskStateService: TaskStateService) {
     this.tasks$ = taskStateService.getTasks$();
