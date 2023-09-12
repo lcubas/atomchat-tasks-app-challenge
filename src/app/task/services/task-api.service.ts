@@ -15,4 +15,11 @@ export class TaskApiService {
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.BASE_API);
   }
+
+  addTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.BASE_API, {
+      title: task.title,
+      description: task.description,
+    });
+  }
 }

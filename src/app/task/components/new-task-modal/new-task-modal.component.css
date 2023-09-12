@@ -1,0 +1,16 @@
+.app-task-modal-content {
+  padding-top: 20px;
+}
+
+.app-task-modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-task-modal-form-item {
+  margin-bottom: 16px;
+
+  @media (min-width: 550px) {
+    min-width: 290px;
+  }
+}

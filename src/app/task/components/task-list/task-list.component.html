@@ -1,9 +1,21 @@
 <section class="app-task-list-wrapper">
-  <ul class="app-task-list">
-    <li *ngFor="let currentTask of tasks$ | async">
-      <app-task-item [task]="currentTask"></app-task-item>
-    </li>
+  <mat-spinner *ngIf="isLoading$ | async else content"></mat-spinner>
 
-    <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
-  </ul>
+  <ng-template #content>
+    <div *ngIf="!(isLoading$ | async)">
+      <button
+        mat-fab
+        extended
+        (click)="onClickOpenNewTaskModal()"
+      >
+        Agregar +
+      </button>
+
+      <ul class="app-task-list">
+        <li *ngFor="let task of tasks$ | async">
+          <app-task-item [task]="task"></app-task-item>
+        </li>
+      </ul>
+    </div>
+  </ng-template>
 </section>
