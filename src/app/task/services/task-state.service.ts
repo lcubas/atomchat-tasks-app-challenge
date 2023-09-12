@@ -11,7 +11,7 @@ export class TaskStateService {
   private tasks$ = new BehaviorSubject<Task[]>([]);
   private loading$ = new BehaviorSubject<boolean>(false);
 
-  constructor(private taskApiSerive: TaskApiService) {}
+  constructor(private taskApiService: TaskApiService) {}
 
   isLoading$() : Observable<boolean> {
     return this.loading$.asObservable();
@@ -21,17 +21,27 @@ export class TaskStateService {
     return this.tasks$.asObservable();
   }
 
-  loadTasks() {
+  loadTasks(): void {
     this.loading$.next(true);
 
-    return this.taskApiSerive.getTasks()
+    this.taskApiService
+      .getTasks()
       .pipe(delay(500))
       .subscribe({
-        next: (tasks) => {
-          this.tasks$.next(tasks);
-        },
+        next: (tasks) => this.tasks$.next(tasks),
         error: (error) => console.log(error),
         complete: () => this.loading$.next(false),
+      });
+  }
+
+  addTask(task: Task): void {
+    this.loading$.next(true);
+
+    this.taskApiService
+      .addTask(task)
+      .subscribe({
+        next: () => this.loadTasks(),
+        error: (error) => console.log(error),
       });
   }
 }
