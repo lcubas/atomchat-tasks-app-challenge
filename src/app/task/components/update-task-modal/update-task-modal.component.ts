@@ -37,11 +37,8 @@ export class UpdateTaskModalComponent {
       this.taskStateService
         .updateTask(updateTaskData)
         .subscribe({
-          error: (error) => console.log(error),
-          complete: () => {
-            this.isLoading = false;
-            this.dialogRef.close(updateTaskData);
-          },
+          next: () => this.dialogRef.close(updateTaskData),
+          complete: () => this.isLoading = false,
         });
     }
   }

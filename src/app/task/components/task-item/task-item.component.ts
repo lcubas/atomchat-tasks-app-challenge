@@ -2,8 +2,10 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { Task } from '../../models/task.model';
+import { Notifier } from 'src/app/shared/services/notifier.service';
 import { TaskStateService } from '../../services/task-state.service';
 import { UpdateTaskModalComponent } from '../update-task-modal/update-task-modal.component';
+import { DeleteTaskModalComponent } from '../delete-task-modal/delete-task-modal.component';
 
 @Component({
   selector: 'app-task-item',
@@ -20,11 +22,12 @@ export class TaskItemComponent {
   };
 
   constructor(
-    public dialog: MatDialog,
+    private dialog: MatDialog,
+    private notifier: Notifier,
     private taskStateService: TaskStateService,
   ) {}
 
-  onChange() {
+  onChangeCompletedTask() {
     const updateTaskData: Task = {
       ...this.task,
       is_completed: !this.task.is_completed,
@@ -47,7 +50,14 @@ export class TaskItemComponent {
     dialogRef.afterClosed().subscribe((updateTaskData: Task) => {
       if (updateTaskData) {
         this.task = { ...updateTaskData };
+        this.notifier.showSuccess('Tarea actualizada!!');
       }
+    });
+  }
+
+  onClickDeleteTask(): void {
+    this.dialog.open(DeleteTaskModalComponent, {
+      data: this.task,
     });
   }
 }

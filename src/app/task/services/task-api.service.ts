@@ -26,4 +26,8 @@ export class TaskApiService {
   updateTask(task: Partial<Task>): Observable<Task> {
     return this.http.put<Task>(`${this.BASE_API}/${task.id}`, { ...task });
   }
+
+  deleteTask(taskId: string): Observable<null> {
+    return this.http.delete<null>(`${this.BASE_API}/${taskId}`);
+  }
 }

@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Eliminar tarea</h1>
+<div mat-dialog-content>
+  <p>¿Estas seguro que desea eliminar la tarea <strong><i>"{{ task.title }}"</i></strong>?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>
+    Cancelar
+  </button>
+
+  <app-button color="warn" [loading]="isLoading" (click)="onClickDeleteTask()">
+    Eliminar
+  </app-button>
+</div>
