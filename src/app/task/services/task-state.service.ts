@@ -29,23 +29,19 @@ export class TaskStateService {
       .pipe(delay(500))
       .subscribe({
         next: (tasks) => this.tasks$.next(tasks),
-        error: (error) => console.log(error),
         complete: () => this.loading$.next(false),
       });
   }
 
-  addTask(task: Task): void {
-    this.loading$.next(true);
-
-    this.taskApiService
-      .addTask(task)
-      .subscribe({
-        next: () => this.loadTasks(),
-        error: (error) => console.log(error),
-      });
+  addTask(task: Task): Observable<Task> {
+    return this.taskApiService.addTask(task);
   }
 
   updateTask(task: Task): Observable<Task> {
     return this.taskApiService.updateTask(task);
+  }
+
+  deleteTask(task: Task): Observable<null> {
+    return this.taskApiService.deleteTask(task.id);
   }
 }

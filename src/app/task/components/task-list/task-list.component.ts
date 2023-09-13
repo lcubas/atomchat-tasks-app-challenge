@@ -1,6 +1,6 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import { Observable } from 'rxjs';
 
 import { Task } from '../../models/task.model';
 import { TaskStateService } from '../../services/task-state.service';
@@ -27,13 +27,7 @@ export class TaskListComponent implements OnInit {
     this.taskStateService.loadTasks();
   }
 
-  onClickOpenNewTaskModal() {
-    const dialogRef = this.dialog.open(NewTaskModalComponent);
-
-    dialogRef.afterClosed().subscribe((newTaskData: Task) => {
-      if (newTaskData) {
-        this.taskStateService.addTask(newTaskData);
-      }
-    });
+  onClickOpenNewTaskModal(): void {
+    this.dialog.open(NewTaskModalComponent);
   }
 }
