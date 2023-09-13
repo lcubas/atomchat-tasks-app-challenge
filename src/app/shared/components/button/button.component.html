@@ -1,0 +1,16 @@
+<button
+  mat-flat-button
+  [type]="type"
+  [color]="color || 'primary'"
+  [disableRipple]="disableRipple"
+  [disabled]="disabled || loading">
+  <mat-progress-spinner
+    *ngIf="loading"
+    [diameter]="24"
+    mode="indeterminate"
+  ></mat-progress-spinner>
+
+  <ng-container>
+    <ng-content></ng-content>
+  </ng-container>
+</button>

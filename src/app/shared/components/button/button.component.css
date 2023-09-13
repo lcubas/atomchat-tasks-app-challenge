@@ -1,0 +1,9 @@
+.mdc-button {
+  .mdc-button__label {
+    display: flex;
+  }
+
+  .mat-mdc-progress-spinner {
+    margin-right: 10px;
+  }
+}
