@@ -48,13 +48,4 @@ export class TaskStateService {
   updateTask(task: Task): Observable<Task> {
     return this.taskApiService.updateTask(task);
   }
-
-  // toggleCompletedTask(task: Task): Observable<Task> {
-  //   const updateTaskData: Task = {
-  //     ...task,
-  //     is_completed: !task.is_completed,
-  //   };
-
-  //   return this.taskApiService.updateTask(updateTaskData);
-  // }
 }
