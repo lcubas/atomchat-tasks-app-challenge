@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/tasks-app-challenge",
     "ignore": [
       "firebase.json",
       "**/.*",
