@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Agregar una nueva tarea</h2>
+<mat-dialog-content class="app-task-modal-content">
+  <form
+    class="app-task-modal-form"
+    [formGroup]="updateTaskForm"
+    (ngSubmit)="onSubmitUpdateTaskForm()"
+  >
+      <mat-form-field appearance="outline" class="app-task-modal-form-item">
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="title" />
+
+        <mat-error
+          class="app-task-form-error"
+          *ngIf="updateTaskForm.get('title')?.hasError('required')"
+        >
+          Título es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="app-task-modal-form-item">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+
+        <mat-error
+          class="app-task-form-error"
+          *ngIf="updateTaskForm.get('description')?.hasError('required')"
+        >
+          Descripción es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <div>
+        <button mat-button mat-dialog-close>
+          Cancelar
+        </button>
+
+        <app-button type="submit" [loading]="isLoading">
+          Guardar
+        </app-button>
+      </div>
+  </form>
+</mat-dialog-content>

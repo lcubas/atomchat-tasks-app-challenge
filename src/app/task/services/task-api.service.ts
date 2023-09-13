@@ -22,4 +22,8 @@ export class TaskApiService {
       description: task.description,
     });
   }
+
+  updateTask(task: Partial<Task>): Observable<Task> {
+    return this.http.put<Task>(`${this.BASE_API}/${task.id}`, { ...task });
+  }
 }

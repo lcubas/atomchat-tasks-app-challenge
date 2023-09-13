@@ -22,6 +22,7 @@
 }
 
 .app-task-item-content {
+  flex: 1;
   padding-top: 5px;
 }
 
@@ -33,4 +34,8 @@
 .app-task-item-description {
   margin: 0;
   font-size: 14px;
+}
+
+.app-task-item-actions {
+  display: flex;
 }
