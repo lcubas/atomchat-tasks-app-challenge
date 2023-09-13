@@ -31,7 +31,9 @@ export class TaskListComponent implements OnInit {
     const dialogRef = this.dialog.open(NewTaskModalComponent);
 
     dialogRef.afterClosed().subscribe((newTaskData: Task) => {
-      this.taskStateService.addTask(newTaskData);
+      if (newTaskData) {
+        this.taskStateService.addTask(newTaskData);
+      }
     });
   }
 }
